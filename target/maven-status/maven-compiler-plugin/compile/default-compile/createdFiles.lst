@@ -1,0 +1,13 @@
+Converters/Converter.class
+DTO/OutgoingData.class
+DTO/OutgoingHead.class
+Parsing/OutgoingDataCreator.class
+Converters/Types/Format.class
+Parsing/HeadInformationCreator.class
+Parsing/DatesParser.class
+Parsing/IntermediateStructure/WorkTime.class
+Main.class
+Parsing/DeviationCalculator.class
+DTO/IncomingData.class
+Parsing/TimesParser.class
+Converters/FileXLSXConverter.class
