@@ -3,6 +3,9 @@ package Converters.HeadReaders;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +34,20 @@ public class HeadExcelReader {
             if (successRead == null) throw new NullPointerException();
         } catch (Exception e){
             System.out.println("нет колонки с названием: " + foundedField.getField());
+            System.out.println("Нажмите Enter для окончания");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                reader.readLine();
+            } catch (IOException ex) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException ex) {
+                    e.printStackTrace();
+                }
+            }
+
             System.exit(1);
         }
         return KeyHeadColumns;
