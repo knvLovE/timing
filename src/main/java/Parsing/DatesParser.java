@@ -14,6 +14,7 @@ public class DatesParser {
 
 
     private Set<Calendar> parsing (List<IncomingData> incomingStructure){
+        // метод для очистки формата даты
         Set<Calendar> dates = new HashSet<>();
         for (IncomingData line : incomingStructure){
             Calendar date = line.getSolutionDate();
@@ -27,10 +28,12 @@ public class DatesParser {
     }
 
     public Set<Calendar> parsAllDays (List<IncomingData> incomingStructure){
+        // структура дат всех дней
         return parsing (incomingStructure);
     }
 
     public Set<Calendar> parsWorkDays (List<IncomingData> incomingStructure){
+        // структура дат рабочих дней
         Set<Calendar> dates = parsing (incomingStructure);
         Set<Calendar> datesUpdate = new HashSet<>();
         for (Calendar date : dates){

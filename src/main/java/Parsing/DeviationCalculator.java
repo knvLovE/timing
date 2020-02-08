@@ -8,6 +8,7 @@ import java.util.List;
 
 public class DeviationCalculator {
     public List<OutgoingData> calculate (List<WorkTime> workTime, int normalDays){
+        // создание выходной структуры с отклонениями от нормы часов
         List<OutgoingData> outgoingDataList = new ArrayList<>();
         for (WorkTime workTimeElement : workTime){
             String processingUserName = workTimeElement.getProcessingUserName();

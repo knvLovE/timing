@@ -10,6 +10,8 @@ import java.util.*;
 
 public class HeadInformationCreator {
     public OutgoingHead parsing (List<IncomingData> incomingStructure) {
+        // создание дополнительной информации в шапке
+
         DatesParser datesParser = new DatesParser();
         List<Calendar> datesList = new ArrayList<>(datesParser.parsAllDays(incomingStructure));
         Collections.sort(datesList);

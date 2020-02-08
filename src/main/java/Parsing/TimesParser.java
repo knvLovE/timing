@@ -8,6 +8,7 @@ import java.util.*;
 
 public class TimesParser {
     public List<WorkTime> parsing (List<IncomingData> incomingStructure){
+        // Метод собирает сводную таблицу по времени работы в разрезе каждого исполнителя
 
         Map<String, WorkTime> pivotTable = new HashMap<>();
 

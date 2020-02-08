@@ -30,10 +30,12 @@ public class Main {
              converter = new FileXLSXConverter();
         }
 
+        //создание основной выходной структуры
         List<IncomingData> incomingDataList = converter.readData(incomingFileName);
         OutgoingDataCreator parser = new OutgoingDataCreator();
         List<OutgoingData> outgoingDataList = parser.parsing(incomingDataList);
 
+        //создание дополнительной информации в шапке
         HeadInformationCreator headInformationCreator = new HeadInformationCreator();
         OutgoingHead outgoingHead = headInformationCreator.parsing(incomingDataList);
 
