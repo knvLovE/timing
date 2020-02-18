@@ -1,13 +1,17 @@
 Converters/Converter.class
 DTO/OutgoingData.class
+Converters/HeadReaders/HeadExcelEnum.class
 DTO/OutgoingHead.class
 Parsing/OutgoingDataCreator.class
+Windows/MainWindow.class
 Converters/Types/Format.class
 Parsing/HeadInformationCreator.class
 Parsing/DatesParser.class
 Parsing/IntermediateStructure/WorkTime.class
 Main.class
 Parsing/DeviationCalculator.class
+Converters/HeadReaders/HeadExcelReader.class
 DTO/IncomingData.class
+Windows/Window.class
 Parsing/TimesParser.class
 Converters/FileXLSXConverter.class

@@ -46,7 +46,7 @@ public class Main {
         converter.writeData(outgoingHead, outgoingDataList, outgoingFileName);
 
 
-       // System.out.println("Нажмите Enter для окончания");
+        System.out.println("Нажмите Enter для окончания");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             reader.readLine();
