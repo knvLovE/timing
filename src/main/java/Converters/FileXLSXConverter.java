@@ -5,6 +5,7 @@ import Converters.HeadReaders.HeadExcelReader;
 import DTO.IncomingData;
 import DTO.OutgoingData;
 import DTO.OutgoingHead;
+import Windows.MainWindow;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -24,7 +25,8 @@ public class FileXLSXConverter implements Converter {
             fileInputStream = new FileInputStream(excelFile);
             workbookIn = new XSSFWorkbook(fileInputStream);
         } catch (IOException e) {
-            System.out.println("Файл с названием in.xlsx не найден");
+            //System.out.println("Файл с названием in.xlsx не найден");
+            MainWindow.getInstance().println("Файл с названием in.xlsx не найден");
             System.exit(1);
 
         }
@@ -51,7 +53,8 @@ public class FileXLSXConverter implements Converter {
                 IncomingData incomingData = new IncomingData(requesterUserName, processingUserName, workMinutes, solutionDate);
                 incomingStructure.add(incomingData);
             } catch (NullPointerException e){
-                System.out.println("Строка " + (rowT.getRowNum()+1) + " c пустыми данными не была обработана" );
+                //System.out.println("Строка " + (rowT.getRowNum()+1) + " c пустыми данными не была обработана" );
+                MainWindow.getInstance().println("Строка " + (rowT.getRowNum()+1) + " c пустыми данными не была обработана");
             }
 
         }
@@ -63,7 +66,8 @@ public class FileXLSXConverter implements Converter {
         }
 
         if (incomingStructure.size()==0){
-            System.out.println("Файл не содержит данных");
+           // System.out.println("Файл не содержит данных");
+            MainWindow.getInstance().println("Файл не содержит данных");
             System.exit(1);
         }
 
@@ -133,7 +137,8 @@ public class FileXLSXConverter implements Converter {
             workbookOut.write(fileOut);
             fileOut.close();
             workbookOut.close();
-            System.out.println("Создан файл out.xlsx");
+           // System.out.println("Создан файл out.xlsx");
+            MainWindow.getInstance().println("Создан файл out.xlsx");
         } catch (IOException e) {
             e.printStackTrace();
         }

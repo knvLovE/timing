@@ -6,6 +6,8 @@ import DTO.OutgoingData;
 import DTO.OutgoingHead;
 import Parsing.HeadInformationCreator;
 import Parsing.OutgoingDataCreator;
+import Windows.MainWindow;
+import Windows.Window;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,7 +17,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
 
         // настраиваемые параметры типа входного и выходного файла
         Format incomingFormat = Format.XLSX;
@@ -45,7 +46,7 @@ public class Main {
         converter.writeData(outgoingHead, outgoingDataList, outgoingFileName);
 
 
-        System.out.println("Нажмите Enter для окончания");
+       // System.out.println("Нажмите Enter для окончания");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             reader.readLine();

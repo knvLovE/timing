@@ -1,5 +1,6 @@
 package Converters.HeadReaders;
 
+import Windows.MainWindow;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
@@ -33,8 +34,9 @@ public class HeadExcelReader {
             KeyHeadColumns.put(foundedField, successRead = allHeadColumns.get(foundedField.getField()));
             if (successRead == null) throw new NullPointerException();
         } catch (Exception e){
-            System.out.println("нет колонки с названием: " + foundedField.getField());
-            System.out.println("Нажмите Enter для окончания");
+           // System.out.println("нет колонки с названием: " + foundedField.getField());
+           // System.out.println("Нажмите Enter для окончания");
+            MainWindow.getInstance().println("нет колонки с названием: " + foundedField.getField());
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 reader.readLine();
