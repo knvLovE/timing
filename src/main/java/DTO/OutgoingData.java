@@ -10,8 +10,14 @@ public class OutgoingData implements Comparable <OutgoingData> {
     private int deviationNormalMinutes; // отклонение от нормы в минутах
     private double deviationNormalHours; // отклонение от нормы в часах
 
-    public OutgoingData(String processingUserName, int totalRequestMinutes, int totalProjectMinutes, int totalMinutes,
-                        int normalWorkDays, int normalWorkMinutes, int deviationNormalMinutes, double deviationNormalHours) {
+    public OutgoingData(String processingUserName,
+                        int totalRequestMinutes,
+                        int totalProjectMinutes,
+                        int totalMinutes,
+                        int normalWorkDays,
+                        int normalWorkMinutes,
+                        int deviationNormalMinutes,
+                        double deviationNormalHours) {
         this.processingUserName = processingUserName;
         this.totalRequestMinutes = totalRequestMinutes;
         this.totalProjectMinutes = totalProjectMinutes;

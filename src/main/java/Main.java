@@ -46,7 +46,7 @@ public class Main {
         converter.writeData(outgoingHead, outgoingDataList, outgoingFileName);
 
         MainWindow.getInstance().println("Закройте окно перед поторным запуском");
-        
+
 
 
     }
