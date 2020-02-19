@@ -45,20 +45,8 @@ public class Main {
         }
         converter.writeData(outgoingHead, outgoingDataList, outgoingFileName);
 
-
-        System.out.println("Нажмите Enter для окончания");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        MainWindow.getInstance().println("Закройте окно перед поторным запуском");
+        
 
 
     }
