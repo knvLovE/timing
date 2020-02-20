@@ -1,5 +1,6 @@
 package Converters;
 
+import Converters.FormatWriter.FormatExcelWriter;
 import Converters.HeadReaders.HeadExcelEnum;
 import Converters.HeadReaders.HeadExcelReader;
 import DTO.IncomingData;
@@ -87,79 +88,20 @@ public class FileXLSXConverter implements Converter {
             System.exit(1);
         }
 
-
-
         return incomingStructure;
     }
 
     public void writeData (OutgoingHead headInformation, List<OutgoingData> outgoingStructure, File fileName) {
-        Workbook workbookOut = new XSSFWorkbook();
-        Sheet sheet = workbookOut.createSheet("Result");
-
-        int currentLine = headInformation.getHead().size() + 1;
-
-
-        String [] headTable = {"ФИО","Заявки мин.","Проект мин.","Общее мин.","Норма дни","Норма мин.",
-                "Разница мин.","Разница час."};
-        Row row = sheet.createRow(currentLine);
-        for (int i = 0 ; i< headTable.length; i++ ){
-            Cell cell = row.createCell(i);
-            cell.setCellValue(headTable[i]);
-        }
-        currentLine ++;
-
-        for (OutgoingData line: outgoingStructure){
-            row = sheet.createRow(currentLine);
-
-            Cell cell0 = row.createCell(0);
-            cell0.setCellValue(line.getProcessingUserName());
-            Cell cell1 = row.createCell(1);
-            cell1.setCellValue(line.getTotalRequestMinutes()+"");
-            Cell cell2 = row.createCell(2);
-            cell2.setCellValue(line.getTotalProjectMinutes()+"");
-            Cell cell3 = row.createCell(3);
-            cell3.setCellValue(line.getTotalMinutes()+"");
-            Cell cell4 = row.createCell(4);
-            cell4.setCellValue(line.getNormalWorkDays()+"");
-            Cell cell5 = row.createCell(5);
-            cell5.setCellValue(line.getNormalWorkMinutes()+"");
-            Cell cell6 = row.createCell(6);
-            cell6.setCellValue(line.getDeviationNormalMinutes()+"");
-            Cell cell7 = row.createCell(7);
-//            cell7.setCellValue(line.getDeviationNormalHours()+"");
-
-            DataFormat dataFormat = workbookOut.createDataFormat();
-            CellStyle cellStyle = workbookOut.createCellStyle();
-            cellStyle.setDataFormat(dataFormat.getFormat("0.00"));
-            cell7.setCellStyle(cellStyle);
-            cell7.setCellFormula("G6/60");
-
-
-
-            currentLine ++;
-        }
-
-        for (int i = 0; i < headTable.length; i++) {
-            sheet.autoSizeColumn(i);
-        }
-
-        currentLine = 0;
-
-        for (String line : headInformation.getHead()){
-            row = sheet.createRow(currentLine);
-            Cell cell = row.createCell(0);
-            cell.setCellValue(line);
-            currentLine++;
-        }
+        FormatExcelWriter  formatExcelWriter = new FormatExcelWriter();
+        Workbook workbook = formatExcelWriter.write(headInformation,outgoingStructure);
 
         File excelFile = fileName;
         FileOutputStream fileOut = null;
         try {
             fileOut = new FileOutputStream(excelFile);
-            workbookOut.write(fileOut);
+            workbook.write(fileOut);
             fileOut.close();
-            workbookOut.close();
-           // System.out.println("Создан файл out.xlsx");
+            workbook.close();
             MainWindow.getInstance().println("\n\rСоздан файл out.xlsx");
         } catch (IOException e) {
             e.printStackTrace();

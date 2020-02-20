@@ -18,7 +18,7 @@ public class DeviationCalculator {
             int normalWorkDays = normalDays;
             int normalWorkMinutes = normalDays*8*60;
             int deviationNormalMinutes =  totalMinutes - normalWorkMinutes;
-            double deviationNormalHours = deviationNormalMinutes * 100 / 60 / 100.0;
+            double deviationNormalHours = deviationNormalMinutes * 10 / 60 / 10.0;
             OutgoingData outgoingData = new OutgoingData(processingUserName, totalRequestMinutes, totalProjectMinutes,
                     totalMinutes, normalWorkDays, normalWorkMinutes, deviationNormalMinutes, deviationNormalHours);
             outgoingDataList.add(outgoingData);
