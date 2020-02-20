@@ -1,8 +1,10 @@
 /Users/u01572007/IdeaProjects/timing/src/main/java/Parsing/DatesParser.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Converters/HeadReaders/HeadExcelEnum.java
+/Users/u01572007/IdeaProjects/timing/src/main/java/Converters/Types/FileFormat.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Windows/MainWindow.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/DTO/IncomingData.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Parsing/HeadInformationCreator.java
+/Users/u01572007/IdeaProjects/timing/src/main/java/Converters/FormatWriter/FormatExcelWriter.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Windows/Window.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/DTO/OutgoingData.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Converters/HeadReaders/HeadExcelReader.java
@@ -11,7 +13,7 @@
 /Users/u01572007/IdeaProjects/timing/src/main/java/DTO/OutgoingHead.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Parsing/DeviationCalculator.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Parsing/OutgoingDataCreator.java
-/Users/u01572007/IdeaProjects/timing/src/main/java/Converters/Types/Format.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Converters/Converter.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Parsing/IntermediateStructure/WorkTime.java
+/Users/u01572007/IdeaProjects/timing/src/main/java/Converters/FormatWriter/FormatExcelVariants.java
 /Users/u01572007/IdeaProjects/timing/src/main/java/Parsing/TimesParser.java
