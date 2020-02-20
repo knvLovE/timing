@@ -6,7 +6,10 @@ import DTO.IncomingData;
 import DTO.OutgoingData;
 import DTO.OutgoingHead;
 import Windows.MainWindow;
+import com.microsoft.schemas.office.visio.x2012.main.impl.CellTypeImpl;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -108,9 +111,6 @@ public class FileXLSXConverter implements Converter {
         for (OutgoingData line: outgoingStructure){
             row = sheet.createRow(currentLine);
 
-            for (int i = 0 ; i< headTable.length; i++ ){
-
-            }
             Cell cell0 = row.createCell(0);
             cell0.setCellValue(line.getProcessingUserName());
             Cell cell1 = row.createCell(1);
@@ -126,7 +126,16 @@ public class FileXLSXConverter implements Converter {
             Cell cell6 = row.createCell(6);
             cell6.setCellValue(line.getDeviationNormalMinutes()+"");
             Cell cell7 = row.createCell(7);
-            cell7.setCellValue(line.getDeviationNormalHours()+"");
+//            cell7.setCellValue(line.getDeviationNormalHours()+"");
+
+            DataFormat dataFormat = workbookOut.createDataFormat();
+            CellStyle cellStyle = workbookOut.createCellStyle();
+            cellStyle.setDataFormat(dataFormat.getFormat("0.00"));
+            cell7.setCellStyle(cellStyle);
+            cell7.setCellFormula("G6/60");
+
+
+
             currentLine ++;
         }
 

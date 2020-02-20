@@ -1,5 +1,5 @@
 package Converters.Types;
 
-public enum Format {
+public enum FileFormat {
     XLSX;
 }
