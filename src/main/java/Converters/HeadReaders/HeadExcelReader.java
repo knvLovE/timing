@@ -37,19 +37,11 @@ public class HeadExcelReader {
            // System.out.println("нет колонки с названием: " + foundedField.getField());
            // System.out.println("Нажмите Enter для окончания");
             MainWindow.getInstance().println("нет колонки с названием: " + foundedField.getField());
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
-                reader.readLine();
-            } catch (IOException ex) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    reader.close();
-                } catch (IOException ex) {
-                    e.printStackTrace();
-                }
+                Thread.sleep(60000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-
             System.exit(1);
         }
         return KeyHeadColumns;

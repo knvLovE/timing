@@ -27,6 +27,11 @@ public class FileXLSXConverter implements Converter {
         } catch (IOException e) {
             //System.out.println("Файл с названием in.xlsx не найден");
             MainWindow.getInstance().println("Файл с названием in.xlsx не найден");
+            try {
+                Thread.sleep(60000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
             System.exit(1);
 
         }
@@ -56,6 +61,9 @@ public class FileXLSXConverter implements Converter {
                 //System.out.println("Строка " + (rowT.getRowNum()+1) + " c пустыми данными не была обработана" );
                 MainWindow.getInstance().println("Строка " + (rowT.getRowNum()+1) + " c пустыми данными не была обработана");
             }
+            catch (IllegalStateException e){
+                MainWindow.getInstance().println("Строка " + (rowT.getRowNum()+1) + ": неверный формат данных " + e.getMessage());
+            }
 
         }
         try {
@@ -68,6 +76,11 @@ public class FileXLSXConverter implements Converter {
         if (incomingStructure.size()==0){
            // System.out.println("Файл не содержит данных");
             MainWindow.getInstance().println("Файл не содержит данных");
+            try {
+                Thread.sleep(60000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.exit(1);
         }
 
@@ -138,7 +151,7 @@ public class FileXLSXConverter implements Converter {
             fileOut.close();
             workbookOut.close();
            // System.out.println("Создан файл out.xlsx");
-            MainWindow.getInstance().println("Создан файл out.xlsx");
+            MainWindow.getInstance().println("\n\rСоздан файл out.xlsx");
         } catch (IOException e) {
             e.printStackTrace();
         }
